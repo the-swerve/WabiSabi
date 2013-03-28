@@ -1,4 +1,20 @@
+
 # WabiSabi CMS
+
+## Overview
+
+WabiSabi will allow designers to easily and declaratively make templates and to
+insert fields and blog feeds that are all editable in-place.
+
+1. Put your template, with all its styles and scripts, inside the 'temple' directory.
+
+2. On your template pages, you can define 'gardens', which are editable areas of
+the template
+
+3. You can split up your template bits with 'blocks', which come from the phpti
+library.
+
+4. You can instantiate pages of your template by logging in as admin (/admin), then going to URL that doesn't have any page on it, and choosing your template from the dropdown
 
 ## SQLite
 
