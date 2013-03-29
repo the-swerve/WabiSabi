@@ -10,6 +10,7 @@
 // -----------------------
 
 define('R', __DIR__); // define root ('R') as the directory of index.php
+define('P', '/wabisabi'); // manually define the server-relative directory 
 
 // Open/create SQLite db files
 $db = new PDO('sqlite:'.R.'/data/wabisabi.sqlite');

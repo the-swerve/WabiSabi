@@ -16,6 +16,8 @@ library.
 
 4. You can instantiate pages of your template by logging in as admin (/admin), then going to URL that doesn't have any page on it, and choosing your template from the dropdown
 
+5. If you're signed in as an admin, any editable area on your template will be editable in-place when you visit the page.
+
 ## SQLite
 
 SQLite comes bundled into PHP5 and requires only file read/write.

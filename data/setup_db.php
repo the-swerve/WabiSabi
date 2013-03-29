@@ -16,6 +16,7 @@ try {
 	           id INTEGER PRIMARY KEY,
 	           created_at INTEGER,
 	           updated_at INTEGER,
+						 session_token TEXT,
 	           pass_hash TEXT)");
 
 	// Create paths
