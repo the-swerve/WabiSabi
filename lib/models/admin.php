@@ -4,6 +4,7 @@
 class Admin {
 
 	public function __construct(PDO $db) {
+		// Make the database accessible to Admin instances
 		$this->db = $db;
 	}
 
@@ -61,6 +62,12 @@ class Admin {
 			return false;
 		}
 	} // new_session
+
+	function admin_exists() {
+		// Check in db if there's a user	
+		$users = $this->db->query('SELECT * FROM admins')->fetchAll();
+		return count($users) > 0;
+	}
 
 } // class
 

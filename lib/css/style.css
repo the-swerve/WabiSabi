@@ -1,0 +1,47 @@
+
+/* Administration authentication
+ * *****************************/
+
+/* Administration controls 
+ * ***********************/
+
+.admin-bar {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 30px;
+	padding: 6px;
+	width: 100%;
+}
+
+.admin-bar a {
+	text-decoration: none;
+	color: white;
+}
+
+.admin-bar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.admin-bar ul li {
+	margin-top: 6px;
+	padding-right: 20px;
+	float: right;
+}
+
+/* New page creation
+ * *****************/
+.create-page {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.create-page label {
+	display: inline;
+	font-size: 16px;
+}
+
+.create-page select {
+	margin-bottom: 0;
+}

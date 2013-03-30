@@ -1,52 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
 <style>
-	body {
-		text-align: center;
-	}
-	form {
+	#form {
 		margin: 0 auto 0 auto;
-		width: 20em;
+		width: 9em;
 	}
 
-	input {
-		width: 10em;
-		font-family: monospace;
-		font-size: 24px;
-		padding: 12px;
-		border: 1px solid #ddd;
-		box-shadow: 0 0 7px 0 #ddd;
+	#pass {
+		height: auto;
+		width: 8em;
 	}
 
-	h1 {
+	#h1 {
+		text-align: center;
 		margin-top: 10%;
-		font-family: monospace;
 		color: #555;
 		font-size: 18px;
 	}
 </style>
-</head>
-<body>
 
-<?php include R.'/lib/auth/check_users.php' ?>
+<?php
 
-<?php if(user_exists()) { ?>
+require_once R.'/lib/models/admin.php';
+$admin = new Admin($db);
 
-	<h1>Sign in</h1>
+?>
 
-	<form method="post">
-		<input type="password" placeholder="Password" name="pass" />
+<?php if($signed_in) { ?>
+
+	<p>You're already signed in.</p>
+
+<?php } else if($admin->admin_exists()) { ?>
+
+	<h1 id='h1'>Login</h1>
+
+	<form method="post" id='form'>
+		<input type="password" placeholder="Password" name="pass" id='pass' />
 	</form>
 
 <?php } else { ?>
 
-	<h1>Create your password</h1>
+	<h1 id='h1'>Create your password</h1>
 
-	<form method="post">
-		<input type="password" placeholder="New password" name="new_pass" />
+	<form method="post" id='form'>
+		<input type="password" placeholder="New password" name="new_pass" id='pass' />
 	</form>
 
 <?php } ?>
-
-</body></html>
