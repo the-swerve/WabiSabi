@@ -20,7 +20,7 @@ $pages = "CREATE TABLE IF NOT EXISTS pages (
 					 created_at INTEGER,
 					 updated_at INTEGER,
 					 path TEXT,
-					 gardens 
+					 title TEXT,
 					 template TEXT)";
 
 // The many-to-many join table for gardens and pages. One page will have many 

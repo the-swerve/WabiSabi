@@ -24,7 +24,7 @@ if($admin->admin_exists() && $_POST['pass']) {
 	// Register a user
 	$success = $admin->register($_POST['new_pass']);
 	if($success) {	
-		echo 'Registered!';
+		?> <script> window.location.href='<?php echo P ?>'; </script> <?php
 	} else {
 		echo 'There was a problem.';
 	}

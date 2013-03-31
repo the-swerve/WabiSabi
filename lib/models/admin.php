@@ -14,7 +14,7 @@ class Admin {
 		$bcrypt = new Bcrypt(15);
 		$hash = $bcrypt->hash($pass);
 
-		// Create the user with the stored hash
+		// Prepare our sql command
 		$db_insert = "INSERT INTO admins (created_at,updated_at,session_token,pass_hash)
 									VALUES (:created_at,:updated_at,:session_token,:pass_hash)";
 		$statement = $this->db->prepare($db_insert);
@@ -22,25 +22,19 @@ class Admin {
 		// Generate a random session token
 		$generated_token = bin2hex(openssl_random_pseudo_bytes(4));
 
-		// Bind parameters to statement variables
-		$statement->bindParam(':created_at', $created_at);
-		$statement->bindParam(':updated_at', $updated_at);
-		$statement->bindParam(':session_token', $session_token);
-		$statement->bindParam(':pass_hash', $pass_hash);
+		// Bind parameters to values
+		$statement->bindParam(':created_at', time());
+		$statement->bindParam(':updated_at', time());
+		$statement->bindParam(':session_token', $generated_token);
+		$statement->bindParam(':pass_hash', $hash);
 
-		// Store the newly-created session token in a cookie
-		// (Immediatelys sign in the admin)
-
-		$created_at = time();
-		$updated_at = time();
-		$pass_hash = $hash;
-		$session_token = $generated_token;
-
+		// Execute table creation
 		$statement->execute();
 
-		$admins =  $this->db->query('SELECT * FROM admins');
+		// Sign the admin in
+		setcookie('wbsesh', $generated_token);
 
-		return true;
+		return true; // success
 
 	} // register
 
