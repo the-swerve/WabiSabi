@@ -8,17 +8,17 @@
 .admin-bar {
 	position: fixed;
 	left: 0;
-	bottom: 0;
-	height: 30px;
+	top: 0;
+	height: 36px;
 	padding: 6px;
 	width: 100%;
+	background-color: #f0f0f0;
+	border: 1px solid #ddd;
 }
-
 .admin-bar a {
 	text-decoration: none;
 	color: white;
 }
-
 .admin-bar ul {
 	margin: 0;
 	padding: 0;
@@ -28,6 +28,39 @@
 	margin-top: 6px;
 	padding-right: 20px;
 	float: right;
+}
+
+.wysihtml5-toolbar {
+	display: none;
+}
+
+.wysihtml5-dialog {
+	position: absolute;
+}
+
+.wysihtml5-command-active, .wysihtml5-command-dialog-opened {
+	background-color: #868686;
+	background-image: none;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.wysihtml5-command-active:hover, .wysihtml5-command-dialog-opened:hover {
+	background-color: #999;
+}
+
+.wysihtml5-dialog {
+	padding: 12px;
+	border: 1px solid white;
+	border-radius: 7px;
+	top: 35px;
+	right: 48px;
+	color: white;
+	background-color: #5c5c5c;
+}
+.wysihtml5-dialog a {
+	cursor: pointer;
+	margin-right: 6px;
 }
 
 /* New page creation
@@ -53,4 +86,12 @@
 
 #creating-loading {
 	margin-top: 20px;
+}
+
+/* Editable fields
+ * ***************/
+
+div.wabisabi-field, textarea.wabisabi-textarea {
+	width: 100%;
+	height: 100%;
 }

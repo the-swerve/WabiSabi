@@ -1,6 +1,8 @@
 
 <?php
 
+require_once R.'/lib/auth/bcrypt.php';
+
 class Admin {
 
 	public function __construct(PDO $db) {

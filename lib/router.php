@@ -5,13 +5,8 @@ require_once R.'/lib/silex/vendor/autoload.php';
 $app = new Silex\Application();
 $app['debug'] = true;
 
-// Initialize the page class
-require_once 'lib/models/page.php';
-$page_class = new Page($db);
-
 // Routing
 // -------
-
 
 // Administration, Setup, and Configuration
 

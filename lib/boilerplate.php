@@ -7,6 +7,10 @@
 	<meta name="description" content="">
 
 	<script src="<?php echo P."/lib/js/jquery-1.9.1.min.js"?>"></script>
+	<script src="<?php echo P."/lib/js/underscore-min.js"?>"></script>
+	<script src="<?php echo P."/lib/js/wysihtml5-parser.js"?>"></script>
+	<script src="<?php echo P."/lib/js/wysihtml5-0.3.0.min.js"?>"></script>
+	<script src="<?php echo P."/lib/js/wysihtml5-0.3.0.min.js"?>"></script>
 	<script src="<?php echo P."/lib/bootstrap/js/bootstrap.min.js"?>"></script>
 	<script src="<?php echo P."/lib/js/app.js"?>"></script>
 

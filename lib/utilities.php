@@ -8,6 +8,8 @@ function inc($file) {
 	global $db; // give access to the db within our included file
 	global $path;
 	global $page_class;
+	global $field_class;
+	global $admin_class;
 	global $signed_in;
 
 	ob_start();
@@ -17,3 +19,5 @@ function inc($file) {
 
 	return $content; // awww yeah
 }
+
+?>

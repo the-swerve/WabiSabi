@@ -17,18 +17,11 @@
 	}
 </style>
 
-<?php
-
-require_once R.'/lib/models/admin.php';
-$admin = new Admin($db);
-
-?>
-
 <?php if($signed_in) { ?>
 
 	<p>You're already signed in.</p>
 
-<?php } else if($admin->admin_exists()) { ?>
+<?php } else if($admin_class->admin_exists()) { ?>
 
 	<h1 id='h1'>Login</h1>
 

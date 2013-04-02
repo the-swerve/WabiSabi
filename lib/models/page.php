@@ -18,7 +18,7 @@ class Page {
 		if($template_name == 'select template') {
 			return false;
 		}
-		// TODO don't allow creation of repeats
+		// TODO don't allow creation of repeat pages
 		// Prepare our sql command
 		$db_insert = "INSERT INTO pages (created_at,updated_at,path,title,template)
 									VALUES (:created_at,:updated_at,:path,:title,:template)";
