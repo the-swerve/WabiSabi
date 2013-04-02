@@ -13,6 +13,8 @@ $fields = "CREATE TABLE IF NOT EXISTS fields (
 	           created_at INTEGER,
 	           updated_at INTEGER,
 	           name TEXT,
+						 path TEXT,
+						 type TEXT,
 	           content TEXT)";
 
 $pages = "CREATE TABLE IF NOT EXISTS pages (

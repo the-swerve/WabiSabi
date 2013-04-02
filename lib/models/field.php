@@ -8,24 +8,23 @@ class Field {
 		$this->db = $db;
 	}
 
-	public function find_field($name) {
-		// $field = $this->db->query('SELECT * FROM fields WHERE name = "'.$name.'"')->fetchAll();
-		// return reset($field);
-		// The above is not working at all. I have no fucking clue why.
-		$field = null;
-		foreach($this->db->query("SELECT * FROM fields WHERE name = '".$name."'") as $f)  {
-			$field = $f;
-			break;
-		}
-		return $field;
+	public function find_field($name, $path, $type) {
+		return reset($this->db->query("SELECT * FROM fields WHERE name = \"{$name}\" AND path = \"{$path}\" AND type = \"{$type}\"")->fetchAll());
 	}
 
-	public function create($name) {
+	public function create($name, $path, $type) {
 		// TODO don't allow creation of repeat fields
 		// TODO generalize the sql stuff below
 		// Prepare our sql command
-		$db_insert = "INSERT INTO fields (created_at,updated_at,name,content)
-									VALUES (:created_at,:updated_at,:name,:content)";
+
+		// Filter reserved names	
+		if($name == 'content') { $name = '_content'; }
+		if($name == 'name') { $name = '_name'; }
+		if($name == 'path') { $name = '_path'; }
+		if($name == 'type') { $name = '_path'; }
+
+		$db_insert = "INSERT INTO fields (created_at,updated_at,name,path,type,content)
+			VALUES (:created_at,:updated_at,:name,:path,:type,:content)";
 		$statement = $this->db->prepare($db_insert);
 
 		$default_content = 'Edit this field.';
@@ -34,13 +33,22 @@ class Field {
 		$statement->bindParam(':created_at', time());
 		$statement->bindParam(':updated_at', time());
 		$statement->bindParam(':name', $name);
+		$statement->bindParam(':path', $path);
+		$statement->bindParam(':type', $type);
 		$statement->bindParam(':content', $default_content);
 
 		// Execute table creation
 		$statement->execute();
 
-		return $this->find_field($name);
+		return $this->find_field($name, $path, $type);
 
 	} // create
+
+	public function update($name, $path, $type, $content) {
+		if($type == 'generic') { $path = ''; }
+		$db_update = "UPDATE fields SET content = \"{$content}\" WHERE name = \"{$name}\" AND path = \"{$path}\" AND type = \"{$type}\"";
+		return $this->db->exec($db_update);
+	}
+
 
 }

@@ -1,6 +1,6 @@
 
 index template!
 
-<?php field('content'); ?>
+<?php field('main_content', 'specific'); ?>
 
-<?php field('sidebar'); ?>
+<?php field('sidebar', 'generic'); ?>

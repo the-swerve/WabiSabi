@@ -51,6 +51,17 @@ $app->delete('/admin/pages', function (Request $request) use ($app) {
 	}
 });
 
+$app->put('/admin/fields', function (Request $request) use ($app) {
+	// Update a field
+	global $field_class;
+	$success = $field_class->update($request->get('name'), $request->get('path'), $request->get('type'), htmlspecialchars($request->get('content')));
+	if($success) {
+		return $app->json(array('message' => 'field updated'));
+	} else {
+		return $app->json(array('message' => 'could not update field'), 400);
+	}
+});
+
 // Generalized scoping
 // Yeah, it only goes up to four directories. There ain't no splats in Silex.
 

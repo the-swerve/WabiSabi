@@ -3,11 +3,11 @@
 
 	<div class='btn-group'>
 
-		<button class='btn btn-warning' id='logout'>
+		<button class='btn btn-inverse' id='logout'>
 			<a title='Logout' href='#logout'><i class='icon-off'></i> Logout</a>
 		</button>
 
-		<button class='btn btn-danger' id='delete-page'>
+		<button class='btn btn-inverse' id='delete-page'>
 			<a title='Delete this page' href='#'> <i class='icon-trash'></i> Delete page</a>
 		</button>
 
