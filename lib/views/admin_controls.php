@@ -1,6 +1,8 @@
 
 <div class='admin-bar'>
 
+<!-- TODO make this a bootstrap navbar -->
+
 	<div class='btn-group'>
 
 		<button class='btn btn-inverse' id='logout'>
@@ -13,9 +15,7 @@
 
 	</div>
 
-	<div class='btn disabled hide' id='saving-status'>
-	</div>
-
+	<div class='btn disabled hide' id='saving-status'></div>
 
 	<script type="text/template" class='toolbar-template'>
 		<div class='btn-group wysihtml5-toolbar' id='<%= toolbar_id %>' style='display:none;'>

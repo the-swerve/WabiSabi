@@ -37,13 +37,15 @@ require_once R.'/lib/views/show_field.php';  // Show fields
 // Detect if the admin is signed in
 $signed_in = false;
 $admin = $admin_class->retrieve();
-$cookie = $_COOKIE['wbsession'];
-if($admin['session_token'] == $cookie) {
-	$signed_in = true;
-} 
+if($admin) {
+	$cookie = $_COOKIE['wbsession'];
+	if($admin['session_token'] == $cookie) {
+		$signed_in = true;
+	} 
+}
 
 require_once 'lib/router.php';
 
 ?>
 
-<?php $signed_in ? include 'lib/views/admin_controls.php' : '' ?>
+<?php $signed_in ? include 'lib/views/admin_controls.php' : ''; ?>

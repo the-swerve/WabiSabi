@@ -65,15 +65,16 @@ $app->put('/admin/fields', function (Request $request) use ($app) {
 });
 
 // Generalized scoping
+// TODO extract out below redundancy
 // Yeah, it only goes up to four directories. There ain't no splats in Silex.
 
 $app->get('/{one}/{two}/{three}/{four}', function ($one,$two,$three,$four) use ($app) {
 	global $page_class;
 	$path = P.'/'.$one.'/'.$two.'/'.$three.'/'.$four;
 	// Search for a page with this path - O(n)
-	$page = $page_class->find_page($path);
-	if($page) {
-		return inc('/templates/'.$page['template'].'.php');
+	$current_page = $page_class->find_page($path);
+	if($current_page) {
+		return inc('/templates/'.$current_page['template'].'.php');
 	} else {
 		return inc('/lib/views/404.php');
 	}
@@ -83,9 +84,9 @@ $app->get('/{one}/{two}/{three}', function ($one,$two,$three) use ($app) {
 	global $page_class;
 	$path = P.'/'.$one.'/'.$two.'/'.$three;
 	// Search for a page with this path - O(n)
-	$page = $page_class->find_page($path);
-	if($page) {
-		return inc('/templates/'.$page['template'].'.php');
+	$current_page = $page_class->find_page($path);
+	if($current_page) {
+		return inc('/templates/'.$current_page['template'].'.php');
 	} else {
 		return inc('/lib/views/404.php');
 	}
@@ -95,9 +96,9 @@ $app->get('/{one}/{two}', function ($one,$two) use ($app) {
 	global $page_class;
 	$path = P.'/'.$one.'/'.$two;
 	// Search for a page with this path - O(n)
-	$page = $page_class->find_page($path);
-	if($page) {
-		return inc('/templates/'.$page['template'].'.php');
+	$current_page = $page_class->find_page($path);
+	if($current_page) {
+		return inc('/templates/'.$current_page['template'].'.php');
 	} else {
 		return inc('/lib/views/404.php');
 	}
@@ -107,9 +108,9 @@ $app->get('/{one}', function ($one) use ($app) {
 	global $page_class;
 	$path = P.'/'.$one;
 	// Search for a page with this path - O(n)
-	$page = $page_class->find_page($path);
-	if($page) {
-		return inc('/templates/'.$page['template'].'.php');
+	$current_page = $page_class->find_page($path);
+	if($current_page) {
+		return inc('/templates/'.$current_page['template'].'.php');
 	} else {
 		return inc('/lib/views/404.php');
 	}
@@ -122,9 +123,9 @@ $app->get('/', function () {
 	global $page_class;
 	$path = P.'/';
 	// Search for a page with this path - O(n)
-	$page = $page_class->find_page($path);
-	if($page) {
-		return inc('/templates/'.$page['template'].'.php');
+	$current_page = $page_class->find_page($path);
+	if($current_page) {
+		return inc('/templates/'.$current_page['template'].'.php');
 	} else {
 		return inc('/lib/views/404.php');
 	}

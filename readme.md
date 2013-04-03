@@ -35,7 +35,7 @@ link, then create the page. You get a dropdown for the template you want.
 
 ## The Temple
 
-inside /temple, each php file is a template. 
+inside /temple, each php file is a template.
 
 They can reference styles and images and javascripts from anywhere.
 
@@ -52,6 +52,7 @@ useful for blogs and news.
 
 ## todo
 
+* Navigation generator
 * Don't require all that boilerplate stuff is admin not signed in
 
 
