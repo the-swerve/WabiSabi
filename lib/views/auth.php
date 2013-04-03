@@ -21,7 +21,7 @@
 
 	<p>You're already signed in.</p>
 
-<?php } else if($admin_class->admin_exists()) { ?>
+<?php } else if($admin_class->retrieve()) { ?>
 
 	<h1 id='h1'>Login</h1>
 

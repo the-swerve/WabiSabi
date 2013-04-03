@@ -3,7 +3,7 @@
 // General utilities
 
 // A utility function for loading up php templates
-// For use inside routing functions in index.php
+// For use inside routing functions in router.php
 function inc($file) {
 	global $db; // give access to the db within our included file
 	global $path;

@@ -12,7 +12,8 @@ function field($name, $type) {
 	$path = "";
 	if($type == 'specific') {
 		// this field is tied to this specific path
-		$path = $_SERVER['REQUEST_URI'];
+		$no_params = explode('?', $_SERVER['REQUEST_URI'], 2);
+		$path = $no_params[0];
 	}
 
 	$head = "<div class='wabisabi-field' id='wysihtml5-{$name}'>";
@@ -26,7 +27,7 @@ function field($name, $type) {
 	// Find this field
 	$found = $field_class->find_field($name, $path, $type);
 	if($found) {
-		echo $head.$found['content'].$foot;
+		echo $head.html_entity_decode($found['content']).$foot;
 	} else {
 
 		// Field not found: create this field in the db

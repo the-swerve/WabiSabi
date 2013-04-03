@@ -12,17 +12,19 @@ $app['debug'] = true;
 
 $app->get('/admin', function () {
 	// Authenticate an administrator
-	return inc('/lib/auth/auth.php');
+	return inc('/lib/views/auth.php');
 });
 
 $app->post('/admin', function () {
 	// Authenticate an administrator
-	return inc('/lib/auth/auth_post.php');
+	return inc('/lib/views/auth_post.php');
 });
 
-$app->post('/admin/logout', function () {
-	// Logout the administrator
-	return inc('/data/logout.php');
+$app->delete('/admin', function () use ($app) {
+	// Destroy the administrator's session (logout)
+	global $admin_class;
+	$admin_class->destroy_session();
+	return 'Logged out.'; // reload with javascript
 });
 
 use Symfony\Component\HttpFoundation\Request;
@@ -73,7 +75,7 @@ $app->get('/{one}/{two}/{three}/{four}', function ($one,$two,$three,$four) use (
 	if($page) {
 		return inc('/templates/'.$page['template'].'.php');
 	} else {
-		return inc('/lib/404.php');
+		return inc('/lib/views/404.php');
 	}
 });
 
@@ -85,7 +87,7 @@ $app->get('/{one}/{two}/{three}', function ($one,$two,$three) use ($app) {
 	if($page) {
 		return inc('/templates/'.$page['template'].'.php');
 	} else {
-		return inc('/lib/404.php');
+		return inc('/lib/views/404.php');
 	}
 });
 
@@ -97,7 +99,7 @@ $app->get('/{one}/{two}', function ($one,$two) use ($app) {
 	if($page) {
 		return inc('/templates/'.$page['template'].'.php');
 	} else {
-		return inc('/lib/404.php');
+		return inc('/lib/views/404.php');
 	}
 });
 
@@ -109,7 +111,7 @@ $app->get('/{one}', function ($one) use ($app) {
 	if($page) {
 		return inc('/templates/'.$page['template'].'.php');
 	} else {
-		return inc('/lib/404.php');
+		return inc('/lib/views/404.php');
 	}
 });
 
@@ -124,7 +126,7 @@ $app->get('/', function () {
 	if($page) {
 		return inc('/templates/'.$page['template'].'.php');
 	} else {
-		return inc('/lib/404.php');
+		return inc('/lib/views/404.php');
 	}
 });
 

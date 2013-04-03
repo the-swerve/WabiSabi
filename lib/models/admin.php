@@ -1,7 +1,7 @@
 
 <?php
 
-require_once R.'/lib/auth/bcrypt.php';
+require_once R.'/lib/models/bcrypt.php';
 
 class Admin {
 
@@ -34,7 +34,7 @@ class Admin {
 		$statement->execute();
 
 		// Sign the admin in
-		setcookie('wbsesh', $generated_token);
+		setcookie('wbsession', $generated_token, time()+60*60*24*7, P);
 
 		return true; // success
 
@@ -51,7 +51,7 @@ class Admin {
 
 		if($valid) {
 			// Save it to a cookie
-			setcookie('wbsesh', $admin['session_token']);
+			setcookie('wbsession', $admin['session_token'], time()+60*60*24*7, P);
 			return true;
 		}
 		else {
@@ -59,10 +59,10 @@ class Admin {
 		}
 	} // new_session
 
-	function admin_exists() {
+	function retrieve() {
 		// Check in db if there's a user	
-		$users = $this->db->query('SELECT * FROM admins')->fetchAll();
-		return count($users) > 0;
+		$admin = $this->db->query('SELECT * FROM admins')->fetch();
+		return $admin;
 	}
 
 } // class

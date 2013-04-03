@@ -50,4 +50,8 @@ useful for blogs and news.
 
 <?php garden('repeating'); ?>
 
+## todo
+
+* Don't require all that boilerplate stuff is admin not signed in
+
 

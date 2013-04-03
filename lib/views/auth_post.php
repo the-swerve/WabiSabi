@@ -1,7 +1,7 @@
 
 <?php
 
-if($admin_class->admin_exists() && $_POST['pass']) {
+if($admin_class->retrieve() && $_POST['pass']) {
 	// Authenticate existing user
 	$authenticated = $admin_class->new_session($_POST['pass']);
 
@@ -13,7 +13,7 @@ if($admin_class->admin_exists() && $_POST['pass']) {
 		echo 'Invalid pass.';
 	}
 
-} elseif(!$admin_class->admin_exists() && $_POST['new_pass']) {
+} elseif(!$admin_class->retrieve() && $_POST['new_pass']) {
 
 	// Register a user
 	$success = $admin_class->register($_POST['new_pass']);
