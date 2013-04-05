@@ -10,8 +10,12 @@ class Page {
 
 	public function find_page($path) {
 		// Check in db if there's a page based on the path
-		$page = $this->db->query('SELECT * FROM pages WHERE path = "'.$path.'"')->fetchAll();
+		$page = $this->db->query("SELECT * FROM pages WHERE path = \"{$path}\"")->fetchAll();
 		return reset($page);
+	}
+
+	public function all() {
+		return $this->db->query("SELECT * FROM pages")->fetchAll();
 	}
 
 	public function create($path, $title, $template_name) {

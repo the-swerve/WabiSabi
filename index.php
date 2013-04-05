@@ -2,7 +2,7 @@
 /* WabiSabi CMS
  * An ultra-minimal in-place content management system
  * By Jay R Bolton (jayrbolton@gmail.com ` boltonium.com)
- * Tools: Silex, phpti
+ * Thanks to: Silex, phpti, bootstrap
  */
 ?>
 
@@ -10,11 +10,10 @@
 // Setup and configuration
 // -----------------------
 
+require_once 'config.php';
 define('R', __DIR__); // define root ('R') as the directory of index.php
-define('P', '/wabisabi'); // manually define the server-relative directory 
+define('P', $site_directory); // manually define the server-relative directory 
 ?>
-
-<?php include 'lib/views/boilerplate.php' ?>
 
 <?php
 
@@ -43,6 +42,9 @@ if($admin) {
 		$signed_in = true;
 	} 
 }
+
+include 'lib/views/boilerplate.php';
+
 
 require_once 'lib/router.php';
 

@@ -24,6 +24,8 @@ function field($name, $type) {
 		$foot = "</textarea>".$foot;
 	}
 
+	ob_start();
+
 	// Find this field
 	$found = $field_class->find_field($name, $path, $type);
 	if($found) {
@@ -41,7 +43,9 @@ function field($name, $type) {
 
 	}
 
-	return true;
+	$content = ob_get_contents();
+	ob_end_clean();
+	return $content;
 }
 
 ?>

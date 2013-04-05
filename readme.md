@@ -6,9 +6,11 @@
 WabiSabi will allow designers to easily and declaratively make templates and to
 insert fields and blog feeds that are all editable in-place.
 
-1. Put your template, with all its styles and scripts, inside the 'temple' directory.
+This CMS is meant for personal websites, portfolios, websites for shops, restaurants, small companies, etc.
 
-2. On your template pages, you can define 'gardens', which are editable areas of
+1. Put your template, with all its styles and scripts, inside the 'template' directory.
+
+2. On your template pages, you can define 'fields', which are editable areas of
 the template
 
 3. You can split up your template bits with 'blocks', which come from the phpti
@@ -17,6 +19,8 @@ library.
 4. You can instantiate pages of your template by logging in as admin (/admin), then going to URL that doesn't have any page on it, and choosing your template from the dropdown
 
 5. If you're signed in as an admin, any editable area on your template will be editable in-place when you visit the page.
+
+6. In you template, you can use the 'navigation()' function to generate your navigation links.
 
 ## SQLite
 
@@ -39,7 +43,7 @@ inside /temple, each php file is a template.
 
 They can reference styles and images and javascripts from anywhere.
 
-### Garden
+### Fields
 
 Gardens are editable blocks. Simply declare:
 
@@ -52,7 +56,5 @@ useful for blogs and news.
 
 ## todo
 
-* Navigation generator
-* Don't require all that boilerplate stuff is admin not signed in
-
-
+* Display and edit page title.
+* Manifest for styles and scripts.
