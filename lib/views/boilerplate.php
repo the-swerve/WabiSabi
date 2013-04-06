@@ -19,8 +19,7 @@
 
 <?php if($signed_in || $_SERVER['REQUEST_URI'] == P.'/admin') { ?>
 	<script src="<?php echo P."/lib/javascripts/wysihtml5-parser.js"?>"></script>
-	<script src="<?php echo P."/lib/javascripts/wysihtml5-0.3.0.min.js"?>"></script>
-	<script src="<?php echo P."/lib/javascripts/wysihtml5-0.3.0.min.js"?>"></script>
+	<script src="<?php echo P."/lib/javascripts/wysihtml5_autoresize.js"?>"></script>
 	<script src="<?php echo P."/lib/javascripts/app.js"?>"></script>
 	<link rel="stylesheet" type='text/css' href="<?php echo P."/lib/stylesheets/style.css"?>">
 <?php } ?>

@@ -1,31 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
 
+Name       : Old Stairwell 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130313
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Food Bank</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
 <div id="wrapper">
 	<div id="header">
 		<div id="logo">
 			<p align="center">
-			<img src="<?php echo P.'/templates/images/logo.png'; ?>" height="100%" width="80%">
+			<img src="logo.png" height="100%" width="80%">
 			</p>
 		</div>
 		<div id="menu">
-			<?php echo navigation(); ?>
+			<ul>
+				<li><a href="#" accesskey="1" title="">Home</a></li>
+				<li><a href="#" accesskey="2" title="">Services</a></li>
+				<li><a href="#" accesskey="2" title="">Support</a></li>
+				<li><a href="#" accesskey="3" title="">Volunteer</a></li>
+				<li><a href="#" accesskey="4" title="">About</a></li>
+				<li><a href="#" accesskey="5" title="">Contact</a></li>
+			</ul>
 		</div>
 		<div id="banner">
-			<img src="<?php echo P.'/templates/images/banner2.jpg'; ?>" width="100%">
+			<img src="banner2.jpg" width="100%">
 		</div>
 	</div>
 	<div id="page">
 		<div id="content">
-			<h2>Eliminating hunger in our community</h2>
-			<p><img src="<?php echo P.'/templates/images/banner3.jpg'; ?>" width="750" height="250" alt="" /></p>
-
-			<?php echo field('homepage_content', 'specific'); ?>
-	
+			<h2>Food Bank Services</h2>
+			<p><img src="foodshelf.jpg" width="750" height="250" alt="" /></p>
+			<p>Please use the following form to contact us with your inquiries. We will respond as soon as possible!</p>
+			<form name="htmlform" method="post" action="html_form_send.php">
+<table width="450px">
+</tr>
+<tr>
+ <td valign="top">
+  <label for="first_name">First Name *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="first_name" maxlength="50" size="30">
+ </td>
+</tr>
+ 
+<tr>
+ <td valign="top"">
+  <label for="last_name">Last Name *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="last_name" maxlength="50" size="30">
+ </td>
+</tr>
+<tr>
+ <td valign="top">
+  <label for="email">Email Address *</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="email" maxlength="80" size="30">
+ </td>
+ 
+</tr>
+<tr>
+ <td valign="top">
+  <label for="telephone">Telephone Number</label>
+ </td>
+ <td valign="top">
+  <input  type="text" name="telephone" maxlength="30" size="30">
+ </td>
+</tr>
+<tr>
+ <td valign="top">
+  <label for="comments">Message *</label>
+ </td>
+ <td valign="top">
+  <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+ </td>
+ 
+</tr>
+<tr>
+ <td colspan="2" style="text-align:center">
+  <input type="submit" value="Send Message">  
+ </td>
+</tr>
+</table>
+</form>
 		</div>
 		<div id="sidebar">
 			<div id="tbox1">
 				<ul class="style2">
 					<li class="first">
-						<p align="middle"><a href="#"><img src="<?php echo P.'/templates/images/donate.png'; ?>"></a></p>
+						<p align="middle"><a href="#"><img src="donate.png"></a></p>
 						<p></p>Your tax-deductible donation helps us put an end to hunger in Thurston County.</p>
 					</li>
 						

@@ -4,12 +4,12 @@
 // List here all the names of the PHP templates in this directory.
 // Leave out the '.php' extension.
 
-$site_description = "This is your site description";
+$site_description = "Striving to eliminate hunger in Thurston County — Neighbors helping neighbors since 1972";
 
-$templates = array('index', 'contact');
+$templates = array('index');
 
-$scripts = array('app');
+$scripts = array();
 
-$styles = array('style');
+$styles = array('default');
 
 ?>
