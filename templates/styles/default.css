@@ -1,3 +1,6 @@
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
 html, body {
 	height: 100%;
 	background: #ffffff;
@@ -20,8 +23,13 @@ h1, h2, h3 {
 }
 
 h2 {
-	padding: 0px 0px 20px 0px;
+	padding: 0 0 20px 0;
 	font-size: 2em;
+}
+
+hr {
+	margin: 14px 0;
+	border-top: 1px solid #DDD;
 }
 
 p, ol, ul {
@@ -62,10 +70,6 @@ img.aligncenter {
 	margin: 0px auto;
 }
 
-hr {
-	display: none;
-}
-
 /** WRAPPER */
 
 #wrapper {
@@ -73,7 +77,7 @@ hr {
 	width: 1200px;
 	margin: 50px auto;
 	background: #FFFFFF;
-	box-shadow: 0px 0px 10px 5px rgba(0,0,0,.2);
+	box-shadow: 0px 6px 10px 5px rgba(0,0,0,.2);
 }
 
 .container {
@@ -131,6 +135,11 @@ hr {
 	color: #7C7C7C;
 }
 
+#logo p img
+{
+	height: 100%;
+}
+
 
 /* Menu */
 
@@ -154,13 +163,11 @@ hr {
 #menu li
 {
 	float: left;
+	padding: 10px 20px;
 }
 
 #menu a
 {
-	display: block;
-	margin-left: 1px;
-	padding: 7px 0px 7px 30px;
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-align: center;

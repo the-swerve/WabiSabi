@@ -19,8 +19,8 @@ function field($name, $type) {
 	$head = "<div class='wabisabi-field' id='wysihtml5-{$name}'>";
 	$foot = "</div>";
 
-	if($signed_in) {
-		$head .= "<textarea class='wabisabi-textarea' id='wysihtml5-textarea-{$type}-{$name}' data-toolbar-id='wysihtml5-toolbar-{$name}'>";
+	if($signed_in && !$_GET['preview']) {
+		$head .= "<textarea class='wabisabi-textarea' id='wysihtml5-textarea-{$name}' data-toolbar-id='wysihtml5-toolbar-{$name}' data-field-name='{$name}' data-field-type='{$type}'>";
 		$foot = "</textarea>".$foot;
 	}
 

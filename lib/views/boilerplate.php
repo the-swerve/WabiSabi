@@ -10,6 +10,8 @@
 	<meta name="description" content="<?php echo $site_description ?>">
 <?php } ?>
 
+<?php if($signed_in || $_SERVER['REQUEST_URI'] == P.'/admin') { ?>
+
 	<script src="<?php echo P."/lib/javascripts/jquery-1.9.1.min.js"?>"></script>
 	<script src="<?php echo P."/lib/javascripts/underscore-min.js"?>"></script>
 	<script src="<?php echo P."/lib/bootstrap/js/bootstrap.min.js"?>"></script>
@@ -17,11 +19,11 @@
 	<link rel="stylesheet" type='text/css' href="<?php echo P."/lib/bootstrap/css/bootstrap.min.css"?>">
 	<link rel="stylesheet" type='text/css' href="<?php echo P."/lib/bootstrap/css/font-awesome.min.css"?>">
 
-<?php if($signed_in || $_SERVER['REQUEST_URI'] == P.'/admin') { ?>
 	<script src="<?php echo P."/lib/javascripts/wysihtml5-parser.js"?>"></script>
 	<script src="<?php echo P."/lib/javascripts/wysihtml5_autoresize.js"?>"></script>
 	<script src="<?php echo P."/lib/javascripts/app.js"?>"></script>
 	<link rel="stylesheet" type='text/css' href="<?php echo P."/lib/stylesheets/style.css"?>">
+
 <?php } ?>
 
 

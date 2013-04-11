@@ -97,16 +97,17 @@ div.wabisabi-field, textarea.wabisabi-textarea {
 }
 textarea.wabisabi-textarea, textarea.wabisabi-textarea:focus {
 	background-color: transparent;
-	border: 1px solid black;
 	box-shadow: none;
-	padding: 0;
+	padding: 12px;
 	margin: 0;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	min-height: 4em;
 	resize: vertical;
 }
 
-.wysihtml5-sandbox {
+iframe.wysihtml5-sandbox {
+	min-height: 4em;
+	border: 1px dashed #686868 !important;
+	min-width: 100% !important;
 }
