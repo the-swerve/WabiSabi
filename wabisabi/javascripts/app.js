@@ -14,6 +14,10 @@ function create_cookie(name, value, exdays) {
 	document.cookie = name + "=" + value;
 }
 
+/* Configure underscore templating */
+_.templateSettings = {
+	  interpolate : /\{\{(.+?)\}\}/g
+};
 
 $(document).ready(function() {
 
@@ -113,7 +117,6 @@ $(document).ready(function() {
 	// Update a field
 	// This is called by the iframe blur boondoggle down below by the wysiwyg stuff	
 	function update_field(name, path, type, content) {
-		result = false;
 		$.ajax({
 			type: 'put',
 			url: WSData.server_path + '/admin/fields',

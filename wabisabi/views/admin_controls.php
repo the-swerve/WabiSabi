@@ -15,9 +15,9 @@
 	<a id='ws-saving-status' style='display:none;'></a>
 
 		<script type="text/template" id='ws-toolbar-template'>
-			<div class='wysihtml5-toolbar' id='<%= toolbar_id %>' style='display:none;'>
+			<div class='wysihtml5-toolbar' id='{{ toolbar_id }}' style='display:none;'>
 
-				<a id='ws-toolbar-field-name'><%= field_name.replace("_"," ") %>: </a>
+				<a id='ws-toolbar-field-name'>{{ field_name.replace("_"," ") }}: </a>
 
 				<a title='bold' data-wysihtml5-command="bold"><b>b</b></a>
 				<a title='italic' data-wysihtml5-command="italic"><i>i</i></a>
@@ -56,9 +56,11 @@
 				<a title='Block quote'  data-wysihtml5-command="formatBlock" data-wysihtml5-command-value='blockquote'><i class='icon-indent-right'></i></a>
 
 				<a title='Horizontal rule'  data-wysihtml5-command="insertHTML" data-wysihtml5-command-value='<hr>'><i class='icon-minus'></i></a>
+				<a title='HTML view'  data-wysihtml5-action="change_view">&lt;/&gt;</a>
 
 
-			<a data-field-name='<%= field_name %>' data-field-type='<%= field_type %>' class='btn btn-success ws-save-field-btn' id='ws-save-field-btn'><i class='icon-check'></i> Save</a>
+
+			<a data-field-name='{{ field_name }}' data-field-type='{{ field_type }}' class='btn btn-success ws-save-field-btn' id='ws-save-field-btn'><i class='icon-check'></i> Save</a>
 			</div>
 
 

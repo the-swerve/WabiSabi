@@ -44,7 +44,7 @@ class Field {
 	} // create
 
 	public function update($name, $path, $type, $content) {
-		if($type == 'generic') { $path = ''; }
+		if($type == 'generic') { $path = '/'; }
 		$db_update = "UPDATE fields SET content = \"{$content}\" WHERE name = \"{$name}\" AND path = \"{$path}\" AND type = \"{$type}\"";
 		return $this->db->exec($db_update);
 	}
