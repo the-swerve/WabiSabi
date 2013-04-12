@@ -27,11 +27,11 @@ $(document).ready(function() {
 		$(this).parent('.wysihtml5-toolbar').show();
 	});
 
-	// Hide the delete page button if we're on 404
+	// Hide the delete page and preview buttons if we're on 404
 	// TODO move this to php
 	if($('.ws-create-page').length) {
 		$('#ws-delete-page').hide();
-		$('#wysihtml5-toolbar').hide();
+		$('#ws-preview-page').hide();
 	}
 
 	// Login as an administrator
