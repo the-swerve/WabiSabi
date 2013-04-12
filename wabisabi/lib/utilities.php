@@ -13,7 +13,11 @@ function inc($file) {
 	global $signed_in;
 
 	ob_start();
+	include R.'/views/boilerplate.php';
+
 	include R.$file;
+
+	echo '</body></html>';
 	$content = ob_get_contents();
 	ob_end_clean();
 

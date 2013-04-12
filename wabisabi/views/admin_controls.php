@@ -3,11 +3,6 @@
 
 <!-- TODO make this a bootstrap navbar -->
 
-	<div style='display:none;' id='ws-session-data'>
-		<span id='ws-server-path' data-val='<?php echo P ?>'></span>
-		<span id='ws-server-root' data-val='<?php echo R ?>'></span>
-	</div>
-
 	<a class='btn btn-inverse' id='ws-logout' title='Logout' href='#logout'><i class='icon-off'></i> Logout</a>
 	<a class='btn btn-inverse' id='ws-delete-page'  title='Delete this page' href='#'> <i class='icon-trash'></i> Delete page</a>
 

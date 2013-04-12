@@ -1,18 +1,3 @@
-<style>
-	#ws-form {
-		margin: 0 auto 0 auto;
-		width: 6em;
-	}
-
-	#ws-pass {
-		width: 6em;
-	}
-
-	#ws-h1 {
-		text-align: center;
-		margin-top: 10%;
-	}
-</style>
 
 <?php if($signed_in) { ?>
 
@@ -20,18 +5,20 @@
 
 <?php } else if($admin_class->retrieve()) { ?>
 
-	<h1 id='ws-h1'>Login</h1>
+	<h1 class='ws-h1'>Login</h1>
 
-	<form method="post" id='ws-form'>
-		<input type="password" placeholder="Password" name="pass" id='ws-pass' />
+	<form class='ws-form' id='ws-session-form'>
+		<p id='ws-session-status'></p>
+		<input type="password" placeholder="Password" name="pass" class='ws-pass' id='ws-session-pass' />
 	</form>
 
 <?php } else { ?>
 
-	<h1 id='ws-h1'>Create your password</h1>
+	<h1 class='ws-h1'>Create your password</h1>
 
-	<form method="post" id='ws-form'>
-		<input type="password" placeholder="New pass" name="new_pass" id='ws-pass' />
+	<form class='ws-form' id='ws-registration-form'>
+		<p id='ws-registration-status'></p>
+		<input type="password" placeholder="New pass" name="new_pass" class='ws-pass' id='ws-registration-pass' />
 	</form>
 
 <?php } ?>

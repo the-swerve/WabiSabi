@@ -5,35 +5,52 @@ require_once R.'/lib/silex/vendor/autoload.php';
 $app = new Silex\Application();
 $app['debug'] = true;
 
+use Symfony\Component\HttpFoundation\Request;
+
 // Routing
 // -------
 
 // Administration, Setup, and Configuration
 
 $app->get('/admin', function () {
-	// Authenticate an administrator
+	// Administration login page
 	return inc('/views/auth.php');
 });
 
-$app->post('/admin', function () {
-	// Authenticate an administrator
-	return inc('/views/auth_post.php');
+$app->post('/admin/session', function (Request $request) use ($app) {
+	// Authenticate existing user
+	global $admin_class;
+	$token = $admin_class->new_session($request->get('pass'));
+	if($token) {
+		return $app->json(array('session_token' => $token));
+	} else {
+		return $app->json(array('message' => 'could not authenticate'), 401);
+	}
 });
 
-$app->delete('/admin', function () use ($app) {
+$app->post('/admin/registration', function (Request $request) use($app) {
+	// Register a user
+	global $admin_class;
+	$token = $admin_class->register($request->get('new_pass'));
+	if($token) {	
+		return $app->json(array('session_token' => $token));
+	} else {
+		return $app->json(array('message' => 'could not register'), 400);
+	}
+});
+
+$app->delete('/admin/session', function () use ($app) {
 	// Destroy the administrator's session (logout)
 	global $admin_class;
 	$admin_class->destroy_session();
 	return 'Logged out.'; // reload with javascript
 });
 
-use Symfony\Component\HttpFoundation\Request;
 
 $app->post('/admin/pages', function (Request $request) use ($app) {
 	// Create a page
 	global $page_class;
 	$success = $page_class->create($request->get('path'), $request->get('title'), $request->get('template_name'));
-
 	if($success) {
 		return $app->json(array('message' => 'page created'));
 	} else {
@@ -45,7 +62,6 @@ $app->delete('/admin/pages', function (Request $request) use ($app) {
 	// Destroy a page by path
 	global $page_class;
 	$success = $page_class->destroy($request->get('path'));
-
 	if($success) {
 		return $app->json(array('message' => 'page destroyed'));
 	} else {

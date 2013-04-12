@@ -32,10 +32,7 @@ class Admin {
 		// Execute table creation
 		$statement->execute();
 
-		// Sign the admin in
-		setcookie('wbsession', $generated_token, time()+60*60*24*7, P);
-
-		return true; // success
+		return $generated_token; // success
 
 	} // register
 
@@ -50,8 +47,7 @@ class Admin {
 
 		if($valid) {
 			// Save it to a cookie
-			setcookie('wbsession', $admin['session_token'], time()+60*60*24*7, P);
-			return true;
+			return $admin['session_token'];
 		}
 		else {
 			return false;

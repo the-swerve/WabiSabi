@@ -3,7 +3,6 @@
 
 require_once 'run.php';
 
-include 'views/boilerplate.php';
 
 require_once R.'/controllers/router.php';
 
@@ -12,4 +11,3 @@ if($signed_in) {
 }
 
 ?>
-</body></html>

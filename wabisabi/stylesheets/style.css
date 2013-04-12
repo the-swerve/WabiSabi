@@ -43,6 +43,22 @@ textarea {
 	cursor: pointer;
 }
 
+/* /admin */
+
+.ws-form {
+	margin: 0 auto 0 auto;
+	text-align: center;
+}
+
+.ws-pass {
+	width: 6em;
+}
+
+.ws-h1 {
+	text-align: center;
+	margin-top: 10%;
+}
+
 .wysihtml5-toolbar {
 	display: none;
 }

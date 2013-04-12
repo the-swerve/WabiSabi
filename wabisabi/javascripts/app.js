@@ -1,6 +1,17 @@
+// TODO separate UI from data from ajax
+
+/* Utilities */
+/* TODO get a js plugin to manage cookie so this doesn't have to be maintained */
 
 function delete_cookie(name) {
 	document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function create_cookie(name, value, exdays) {
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+	document.cookie = name + "=" + value;
 }
 
 
@@ -23,6 +34,36 @@ $(document).ready(function() {
 		$('#wysihtml5-toolbar').hide();
 	}
 
+	// Login as an administrator
+	$('#ws-session-form').submit(function(e) {
+		e.preventDefault();
+		$('#ws-session-status').html('<i class="icon-spinner icon-spin"></i> authenticating...');
+		var pass = $('#ws-session-pass').val();
+		$.post(WSData.server_path + '/admin/session', {pass: pass}, {}, 'json')
+			.done(function(d) {
+				create_cookie('wbsession', d.session_token);
+				window.location.href = WSData.server_path;
+			})
+			.fail(function(d) {
+				$('#ws-session-status').text('Invalid password.');
+			});
+	});
+
+	// Register as an administrator
+	$('#ws-registration-form').submit(function(e) {
+		e.preventDefault();
+		$('#ws-registration-status').html('<i class="icon-spinner icon-spin"></i> registering...');
+		var new_pass = $('#ws-registration-pass').val();
+		$.post(WSData.server_path + '/admin/registration', {new_pass: new_pass}, {}, 'json')
+			.done(function(d) {
+				create_cookie('wbsession', d.session_token);
+				window.location.href = WSData.server_path;
+			})
+			.fail(function(d) {
+				$('#ws-registration-status').text('Unable to register.');
+			});
+	});
+
 	// Logout as administrator
 	$('#ws-logout').click(function(e) {
 		delete_cookie('wbsession');
@@ -40,7 +81,7 @@ $(document).ready(function() {
 				data: {
 					path: WSData.page_path
 				},
-				dataType: 'html',
+				dataType: 'json',
 				url: WSData.server_path + '/admin/pages'
 			})
 				.done(function(d) {
@@ -80,7 +121,7 @@ $(document).ready(function() {
 			type: 'put',
 			url: WSData.server_path + '/admin/fields',
 			data: {name: name, path: path, type: type, content: content},
-			dataType: 'html'
+			dataType: 'json'
 		}).done(function (d) {
 			$('#ws-saving-status').html('<i class="icon-check"></i> Saved.');
 		}).fail(function (d) {

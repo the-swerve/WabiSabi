@@ -39,3 +39,8 @@
 </head>
 
 <body id='ws-body'>
+
+<div style='display:none;' id='ws-session-data'>
+	<span id='ws-server-path' data-val='<?php echo P ?>'></span>
+	<span id='ws-server-root' data-val='<?php echo R ?>'></span>
+</div>
