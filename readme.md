@@ -54,7 +54,14 @@ useful for blogs and news.
 
 <?php garden('repeating'); ?>
 
-## todo
+## todo in order of priority
 
+* Field autosaving.
+* Auto-updating of wabisabi - http://wprealm.com/blog/yes-you-can-plugin-auto-updates-from-github/
 * Display and edit page title.
-* Manifest for styles and scripts.
+* Data backup.
+* Dynamic session token with multi-signins -- needed?
+
+## Known Issues
+
+* When editing a page and then refreshing, sometimes a field will not have the correct stylings.

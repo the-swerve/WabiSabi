@@ -22,7 +22,7 @@
 		<p><em>You have no templates</em></p>
 	<?php } ?>
 
-		<p style='display:none;' id='ws-creating-loading'> creating...</p>
+		<p style='display:none;' id='ws-creating-loading'><i class='icon-spinner icon-spin'></i> creating...</p>
 
 	</div>
 

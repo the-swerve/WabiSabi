@@ -9,7 +9,7 @@ function field($name, $type) {
 	global $field_class;
 	global $signed_in;
 
-	$path = "";
+	$path = "/";
 	if($type == 'specific') {
 		// this field is tied to this specific path
 		$no_params = explode('?', $_SERVER['REQUEST_URI'], 2);

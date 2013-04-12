@@ -85,7 +85,7 @@ $app->put('/admin/fields', function (Request $request) use ($app) {
 
 $app->get('/{one}/{two}', function ($one,$two) use ($app) {
 	global $page_class;
-	$path = P.'/'.$one.'/'.$two;
+	$path = '/'.$one.'/'.$two;
 	// Search for a page with this path - O(n)
 	$current_page = $page_class->find_page($path);
 	if($current_page) {
@@ -98,7 +98,7 @@ $app->get('/{one}/{two}', function ($one,$two) use ($app) {
 $app->get('/{one}', function ($one) use ($app) {
 	global $page_class;
 	global $signed_in;
-	$path = P.'/'.$one;
+	$path = '/'.$one;
 	// Search for a page with this path - O(n)
 	$current_page = $page_class->find_page($path);
 	if($current_page) {
@@ -112,7 +112,7 @@ $app->get('/{one}', function ($one) use ($app) {
 $app->get('/', function () {
 	global $page_class;
 	global $signed_in;
-	$path = P.'/';
+	$path = '/';
 	// Search for a page with this path - O(n)
 	$current_page = $page_class->find_page($path);
 	if($current_page) {

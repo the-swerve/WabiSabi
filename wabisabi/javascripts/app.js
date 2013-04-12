@@ -81,15 +81,12 @@ $(document).ready(function() {
 				data: {
 					path: WSData.page_path
 				},
-				dataType: 'json',
 				url: WSData.server_path + '/admin/pages'
-			})
-				.done(function(d) {
+			}).done(function(d) {
 					window.location.reload();
-				})
-				.fail(function(d) {
-					alert('Page deletion failed.');
-				});
+			}).fail(function(d) {
+				alert('Page deletion failed.');
+			});
 		}
 	});
 
@@ -120,8 +117,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: 'put',
 			url: WSData.server_path + '/admin/fields',
-			data: {name: name, path: path, type: type, content: content},
-			dataType: 'json'
+			data: {name: name, path: path, type: type, content: content}
 		}).done(function (d) {
 			$('#ws-saving-status').html('<i class="icon-check"></i> Saved.');
 		}).fail(function (d) {
@@ -202,11 +198,10 @@ $(document).ready(function() {
 					$('#ws-saving-status').show().css('display','inline-block').html('<i class="icon-spinner icon-spin"></i> Saving...');
 
 					name = $(this).data('field-name');
-					path = WSData.page_path;
 					type = $(this).data('field-type');
 					content = $('iframe.wysihtml5-textarea-' + name).contents().find('body').html();
 
-					result = update_field(name, path, type, content);
+					result = update_field(name, WSData.page_path, type, content);
 				});
 			});
 		});

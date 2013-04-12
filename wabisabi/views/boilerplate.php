@@ -44,3 +44,11 @@
 	<span id='ws-server-path' data-val='<?php echo P ?>'></span>
 	<span id='ws-server-root' data-val='<?php echo R ?>'></span>
 </div>
+
+<?php
+
+if($signed_in) {
+	include R.'/views/admin_controls.php';
+}
+
+?>
