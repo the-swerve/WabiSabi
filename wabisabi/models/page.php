@@ -17,6 +17,10 @@ class Page {
 		return $this->db->query("SELECT * FROM pages")->fetchAll();
 	}
 
+	public function all_ordered() {
+		return $this->db->query("SELECT * FROM pages ORDER BY title")->fetchAll();
+	}
+
 	public function create($path, $title, $template_name) {
 		if($template_name == 'select template') {
 			return false;

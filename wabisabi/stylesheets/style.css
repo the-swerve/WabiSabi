@@ -39,6 +39,10 @@ textarea {
 	color: gray;
 }
 
+.wysiwyg-text-align-center {
+	text-align: center;
+}
+
 #ws-save-field-btn {
 	background-color: #C4F1C4;
 	cursor: pointer;

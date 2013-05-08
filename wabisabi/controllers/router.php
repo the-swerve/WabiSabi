@@ -69,7 +69,7 @@ $app->delete('/admin/pages', function (Request $request) use ($app) {
 	}
 });
 
-$app->put('/admin/fields', function (Request $request) use ($app) {
+$app->post('/admin/fields', function (Request $request) use ($app) {
 	// Update a field
 	global $field_class;
 	$success = $field_class->update($request->get('name'), $request->get('path'), $request->get('type'), htmlspecialchars($request->get('content')));
@@ -91,7 +91,7 @@ $app->get('/{one}/{two}', function ($one,$two) use ($app) {
 	if($current_page) {
 		return inc('/../templates/'.$current_page['template'].'.php');
 	} else {
-		return inc('/wabisabi/views/404.php');
+		return inc('/views/404.php');
 	}
 });
 

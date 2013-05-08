@@ -334,17 +334,27 @@ ul.style2 a:hover {
 	color: #FFFFFF;
 }
 
+/* Dropdown navigation styling */
 
+#menu .ws-nav-item {
+	position: relative;
+}
 
+#menu .ws-sub-nav {
+	display: none;
+	position: relative;
+	background-color: #009CE6;
+	padding-top: 20px;
+	padding-left: 20px;
+	margin-left: -20px;
+	width: 100%;
+}
 
+#menu .ws-nav-item:hover .ws-sub-nav {
+	display: block;
+	position: absolute;
+}
 
-
-
-
-
-
-
-
-
-
-
+#menu .ws-sub-nav li.ws-nav-item {
+	padding-left: 0;
+}

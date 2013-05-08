@@ -19,6 +19,8 @@ _.templateSettings = {
 	  interpolate : /\{\{(.+?)\}\}/g
 };
 
+/* Return  */
+
 $(document).ready(function() {
 
 	// Make the needed server data accessible locally
@@ -43,7 +45,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#ws-session-status').html('<i class="icon-spinner icon-spin"></i> authenticating...');
 		var pass = $('#ws-session-pass').val();
-		$.post(WSData.server_path + '/admin/session', {pass: pass}, {}, 'json')
+		$.post(WSData.server_path + '/admin/session', {pass: 7px;
 			.done(function(d) {
 				create_cookie('wbsession', d.session_token);
 				window.location.href = WSData.server_path;
@@ -118,7 +120,7 @@ $(document).ready(function() {
 	// This is called by the iframe blur boondoggle down below by the wysiwyg stuff	
 	function update_field(name, path, type, content) {
 		$.ajax({
-			type: 'put',
+			type: 'post',
 			url: WSData.server_path + '/admin/fields',
 			data: {name: name, path: path, type: type, content: content}
 		}).done(function (d) {
@@ -196,7 +198,6 @@ $(document).ready(function() {
 
 				// Dynamically save a field.
 				save_field_btn.click(function(e) {
-					console.log('hi');
 					$('.wysihtml5-toolbar').hide();
 					$('#ws-saving-status').show().css('display','inline-block').html('<i class="icon-spinner icon-spin"></i> Saving...');
 

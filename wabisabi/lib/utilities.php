@@ -24,36 +24,95 @@ function inc($file) {
 	return $content; // awww yeah
 }
 
+// XXX move this into views
 function navigation() {
 	// list out <li> tags for all of the pages in this dir
 	// Retrieve all pages whose path starts with $dir
 	global $page_class;
-	$names = $page_class->all();
-	$nested = false; // Keep track of whether we're in a nested list
-	$markup = "<ul class='nav-list'>";
-	foreach($names as $n) {
+	$pages = $page_class->all();
+	$menu = pages_to_array($pages);
+	$ul = array_to_ul($menu);
+	return $ul;
+} // navigation
+
+function pages_to_array($pages) {
+	// Turn a list of all pages into a PHP nested array
+	// Structure:
+	// 'page' =>
+	// 		'path' => 'fullpath'
+	// 		'title' => 'page title'
+	//		'children' =>
+	//				'path => 'path'
+	//				'title' => 'page title'
+	//	etc
+	$menu = array();
+	foreach($pages as $p) {
 		// Take out the root path and split the path by slashes
-		$dirs = explode("/", str_replace(P, '', $n['path']));
+		$dirs = explode("/", str_replace(P, '', $p['path']));
 		if(count($dirs) > 2) {
+			$menu[$dirs[1]]['children'][$dirs[2]] = array(
+				'path' => P.$p['path'],
+				'title' => $p['title']
+			);
+		} else {
+			$menu[$dirs[1]] = array(
+				'path' => P.$p['path'],
+				'title' => $p['title'],
+				'children' => array()
+			);
+		} // else
+	} // foreach
+
+	return $menu;
+}
+
+function array_to_ul($menu) {
+	$ul = "<ul class='ws-nav'>";
+	foreach($menu as $page) {
+		$ul .= "<li class='ws-nav-item'><a href='{$page['path']}'>{$page['title']}</a>";
+		if($page['children']) {
+			$ul .= "<ul class='ws-sub-nav'>";
+			foreach($page['children'] as $child) {
+				$ul .= "<li class='ws-sub-nav-item'><a href='{$child['path']}'>{$child['title']}</a></li>";
+			}
+			$ul .= "</ul>";
+		}
+		$ul .= "</li>";
+	}
+	
+	return $ul."</ul>";
+}
+
+// array_to_ul
+		/*
 			// This is a subdirectory
 			if(!$nested) {
-				$markup .= "<li class='sub-nav'><ul>";
+				// First nested item
+				$markup .= "<ul class='ws-sub-nav'>";
 			}
 			$nested = true;
 		} else { // This is a parent directory
 			if($nested) {
-				// End our nested list
-				$markup .= '</ul></li>';
+				// We've been nesting; end our nested list
+				$markup .= '</ul>';
+			}
+			if($first) {
+				$markup .= '</li>';
+				$first = false;
 			}
 			$nested = false;
 		}
-		$markup .= "<li class='nav-item'><a href='{$n['path']}'>{$n['title']}</a></li>";
+		$url = P.$n['path'];
+		$markup .= "<li class='ws-nav-item'><a href='{$url}'>{$n['title']}</a>";
+		if($nested) {
+			$markup .= "</li>";
+		}
 	}
-	if($nested) {
-		$markup .= '</ul></li>';
+	if ($nested) {
+		$markup .= '</ul>'; // close final nested list
 	}
-	$markup .= '</ul>';
+	$markup .= '</li></ul>'; // close 
 	return $markup;
-}
+	 */
 
 ?>
