@@ -2,7 +2,7 @@
 # WabiSabi CMS
 
 Users:
-* Edit your entire site in-line with very easy editors.
+* Edit your entire site in-line.
 * Sign in using a single password to administer the site.
 * Create new pages and links dynamically.
 * Automatically generate the navigation for the site.
